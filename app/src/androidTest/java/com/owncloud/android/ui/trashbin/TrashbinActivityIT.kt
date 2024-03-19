@@ -67,11 +67,11 @@ class TrashbinActivityIT : AbstractIT() {
 
         sut.runOnUiThread { sut.loadFolder() }
 
-        waitForIdleSync()
-        shortSleep()
-        shortSleep()
-
-        screenshot(sut)
+        onIdleSync {
+            shortSleep()
+            shortSleep()
+            screenshot(sut)
+        }
     }
 
     @Test
@@ -87,9 +87,9 @@ class TrashbinActivityIT : AbstractIT() {
 
         shortSleep()
         shortSleep()
-        waitForIdleSync()
-
-        screenshot(sut.binding.emptyList.emptyListView)
+        onIdleSync {
+            screenshot(sut.binding.emptyList.emptyListView)
+        }
     }
 
     @Test

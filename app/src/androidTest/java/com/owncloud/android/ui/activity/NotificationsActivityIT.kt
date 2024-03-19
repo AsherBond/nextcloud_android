@@ -39,14 +39,11 @@ class NotificationsActivityIT : AbstractIT() {
     @ScreenshotTest
     fun empty() {
         val sut: NotificationsActivity = activityRule.launchActivity(null)
-
-        waitForIdleSync()
-
-        sut.runOnUiThread { sut.populateList(ArrayList<Notification>()) }
-
-        shortSleep()
-
-        screenshot(sut)
+        onIdleSync {
+            sut.runOnUiThread { sut.populateList(ArrayList<Notification>()) }
+            shortSleep()
+            screenshot(sut)
+        }
     }
 
     @Test

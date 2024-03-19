@@ -62,8 +62,9 @@ class FileDisplayActivityScreenshotIT : AbstractIT() {
             sut.listOfFilesFragment!!.isLoading = false
         }
         shortSleep()
-        waitForIdleSync()
-        screenshot(sut)
+        onIdleSync {
+            screenshot(sut)
+        }
     }
 
     @Test
@@ -115,7 +116,8 @@ class FileDisplayActivityScreenshotIT : AbstractIT() {
             sut.listOfFilesFragment!!.isLoading = false
         }
         shortSleep()
-        waitForIdleSync()
-        screenshot(sut)
+        onIdleSync {
+            screenshot(sut)
+        }
     }
 }

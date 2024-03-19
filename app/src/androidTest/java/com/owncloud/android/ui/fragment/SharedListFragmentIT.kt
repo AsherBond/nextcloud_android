@@ -175,11 +175,12 @@ internal class SharedListFragmentIT : AbstractIT() {
             )
         }
 
-        waitForIdleSync()
-        shortSleep()
-        shortSleep()
-        shortSleep()
+        onIdleSync {
+            shortSleep()
+            shortSleep()
+            shortSleep()
 
-        screenshot(sut)
+            screenshot(sut)
+        }
     }
 }

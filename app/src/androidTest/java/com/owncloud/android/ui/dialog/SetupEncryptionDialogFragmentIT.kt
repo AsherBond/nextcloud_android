@@ -65,9 +65,9 @@ class SetupEncryptionDialogFragmentIT : AbstractIT() {
             sut.showMnemonicInfo()
         }
 
-        waitForIdleSync()
-
-        screenshot(sut.requireDialog().window!!.decorView)
+        onIdleSync {
+            screenshot(sut.requireDialog().window!!.decorView)
+        }
     }
 
     @Test
@@ -86,8 +86,8 @@ class SetupEncryptionDialogFragmentIT : AbstractIT() {
         }
 
         shortSleep()
-        waitForIdleSync()
-
-        screenshot(sut.requireDialog().window!!.decorView)
+        onIdleSync {
+            screenshot(sut.requireDialog().window!!.decorView)
+        }
     }
 }

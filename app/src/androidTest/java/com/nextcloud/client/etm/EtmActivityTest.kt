@@ -38,10 +38,9 @@ class EtmActivityTest : AbstractIT() {
     @ScreenshotTest
     fun overview() {
         val sut: Activity = activityRule.launchActivity(null)
-
-        waitForIdleSync()
-
-        screenshot(sut)
+        onIdleSync {
+            screenshot(sut)
+        }
     }
 
     @Test
