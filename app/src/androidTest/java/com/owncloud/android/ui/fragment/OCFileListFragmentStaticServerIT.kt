@@ -103,11 +103,9 @@ class OCFileListFragmentStaticServerIT : AbstractIT() {
             val fragment = (sut.fragment as OCFileListFragment)
             val root = sut.storageManager.getFileByEncryptedRemotePath("/")
 
-            shortSleep()
-
-            sut.runOnUiThread { fragment.listDirectory(root, false, false) }
-
             onIdleSync {
+                shortSleep()
+                sut.runOnUiThread { fragment.listDirectory(root, false, false) }
                 screenshot(sut)
             }
         }
@@ -233,16 +231,16 @@ class OCFileListFragmentStaticServerIT : AbstractIT() {
 
             sut.addFragment(fragment)
 
-            shortSleep()
-
-            val root = sut.storageManager.getFileByEncryptedRemotePath("/")
-
-            sut.runOnUiThread {
-                fragment.listDirectory(root, false, false)
-                fragment.adapter.setShowShareAvatar(true)
-            }
-
             onIdleSync {
+                shortSleep()
+
+                val root = sut.storageManager.getFileByEncryptedRemotePath("/")
+
+                sut.runOnUiThread {
+                    fragment.listDirectory(root, false, false)
+                    fragment.adapter.setShowShareAvatar(true)
+                }
+
                 shortSleep()
                 shortSleep()
                 shortSleep()
@@ -312,17 +310,16 @@ class OCFileListFragmentStaticServerIT : AbstractIT() {
             }
 
             sut.addFragment(fragment)
-
-            shortSleep()
-
-            val root = sut.storageManager.getFileByEncryptedRemotePath("/")
-
-            sut.runOnUiThread {
-                fragment.listDirectory(root, false, false)
-                fragment.adapter.setShowShareAvatar(true)
-            }
-
             onIdleSync {
+                shortSleep()
+
+                val root = sut.storageManager.getFileByEncryptedRemotePath("/")
+
+                sut.runOnUiThread {
+                    fragment.listDirectory(root, false, false)
+                    fragment.adapter.setShowShareAvatar(true)
+                }
+
                 shortSleep()
                 shortSleep()
                 shortSleep()
@@ -356,11 +353,11 @@ class OCFileListFragmentStaticServerIT : AbstractIT() {
             val testFolder: OCFile = sut.storageManager.getFileByEncryptedRemotePath("/test/")
             testFolder.richWorkspace = getFile("java.md").readText()
 
-            sut.runOnUiThread { fragment.listDirectory(testFolder, false, false) }
-
-            shortSleep()
-
-            screenshot(sut)
+            onIdleSync {
+                sut.runOnUiThread { fragment.listDirectory(testFolder, false, false) }
+                shortSleep()
+                screenshot(sut)
+            }
         }
     }
 

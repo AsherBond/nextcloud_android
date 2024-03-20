@@ -169,19 +169,19 @@ internal class SharedListFragmentIT : AbstractIT() {
 
             shortSleep()
 
-            sut.runOnUiThread {
-                fragment.isLoading = false
-                fragment.mEmptyListContainer.visibility = View.GONE
-                fragment.adapter.setData(
-                    shares,
-                    SearchType.SHARED_FILTER,
-                    storageManager,
-                    null,
-                    true
-                )
-            }
-
             onIdleSync {
+                sut.runOnUiThread {
+                    fragment.isLoading = false
+                    fragment.mEmptyListContainer.visibility = View.GONE
+                    fragment.adapter.setData(
+                        shares,
+                        SearchType.SHARED_FILTER,
+                        storageManager,
+                        null,
+                        true
+                    )
+                }
+
                 shortSleep()
                 shortSleep()
                 shortSleep()
