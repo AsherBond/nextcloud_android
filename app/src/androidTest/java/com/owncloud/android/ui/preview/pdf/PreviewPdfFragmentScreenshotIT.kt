@@ -22,7 +22,6 @@
 package com.owncloud.android.ui.preview.pdf
 
 import android.content.Intent
-import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.rules.ActivityScenarioRule
