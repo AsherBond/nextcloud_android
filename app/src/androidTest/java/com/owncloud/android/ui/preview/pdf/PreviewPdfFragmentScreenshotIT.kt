@@ -63,11 +63,6 @@ class PreviewPdfFragmentScreenshotIT : AbstractIT() {
 
             val sut = PreviewPdfFragment.newInstance(ocFile)
             activity.addFragment(sut)
-
-            while (!sut.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
-                shortSleep()
-            }
-
             activity.runOnUiThread {
                 sut.dismissSnack()
             }
