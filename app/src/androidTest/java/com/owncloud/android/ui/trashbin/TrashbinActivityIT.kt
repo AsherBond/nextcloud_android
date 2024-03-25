@@ -34,6 +34,7 @@ import com.owncloud.android.utils.ScreenshotTest
 import org.junit.After
 import org.junit.Rule
 import org.junit.Test
+import java.util.UUID
 
 class TrashbinActivityIT : AbstractIT() {
     enum class TestCase {
@@ -60,7 +61,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.loadFolder() }
             shortSleep()
-            screenshot(sut)
+            screenshot(sut, UUID.randomUUID().toString())
         }
     }
 
@@ -78,7 +79,7 @@ class TrashbinActivityIT : AbstractIT() {
             onIdleSync {
                 shortSleep()
                 shortSleep()
-                screenshot(sut)
+                screenshot(sut, UUID.randomUUID().toString())
             }
         }
     }
@@ -97,7 +98,7 @@ class TrashbinActivityIT : AbstractIT() {
             shortSleep()
             shortSleep()
             onIdleSync {
-                screenshot(sut.binding.emptyList.emptyListView)
+                screenshot(sut.binding.emptyList.emptyListView, UUID.randomUUID().toString())
             }
         }
     }
@@ -111,7 +112,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.showInitialLoading() }
             shortSleep()
-            screenshot(sut.binding.listFragmentLayout)
+            screenshot(sut.binding.listFragmentLayout, UUID.randomUUID().toString())
         }
     }
 
@@ -124,7 +125,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.showUser() }
             shortSleep()
-            screenshot(sut)
+            screenshot(sut, UUID.randomUUID().toString())
         }
     }
 
@@ -148,7 +149,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.showUser() }
             shortSleep()
-            screenshot(sut)
+            screenshot(sut, UUID.randomUUID().toString())
         }
     }
 }
