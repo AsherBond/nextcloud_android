@@ -60,7 +60,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.loadFolder() }
             shortSleep()
-            screenshot(sut, "com.owncloud.android.ui.trashbin.TrashbinActivityIT_error")
+            screenshot(sut, "error")
         }
     }
 
@@ -78,7 +78,7 @@ class TrashbinActivityIT : AbstractIT() {
             onIdleSync {
                 shortSleep()
                 shortSleep()
-                screenshot(sut, "com.owncloud.android.ui.trashbin.TrashbinActivityIT_files")
+                screenshot(sut, "files")
             }
         }
     }
@@ -99,7 +99,7 @@ class TrashbinActivityIT : AbstractIT() {
             onIdleSync {
                 screenshot(
                     sut.binding.emptyList.emptyListView,
-                    "com.owncloud.android.ui.trashbin.TrashbinActivityIT_empty",
+                    "empty",
                     false
                 )
             }
@@ -117,7 +117,7 @@ class TrashbinActivityIT : AbstractIT() {
             shortSleep()
             screenshot(
                 sut.binding.listFragmentLayout,
-                "com.owncloud.android.ui.trashbin.TrashbinActivityIT_loading",
+                "loading",
                 false
             )
         }
@@ -132,7 +132,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.showUser() }
             shortSleep()
-            screenshot(sut, "com.owncloud.android.ui.trashbin.TrashbinActivityIT_normalUser")
+            screenshot(sut, "normalUser")
         }
     }
 
@@ -156,7 +156,7 @@ class TrashbinActivityIT : AbstractIT() {
             sut.trashbinPresenter = TrashbinPresenter(trashbinRepository, sut)
             sut.runOnUiThread { sut.showUser() }
             shortSleep()
-            screenshot(sut, "com.owncloud.android.ui.trashbin.TrashbinActivityIT_differentUser")
+            screenshot(sut, "differentUser")
         }
     }
 }
