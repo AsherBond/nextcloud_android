@@ -64,7 +64,6 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.UUID;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -465,7 +464,7 @@ public abstract class AbstractIT {
 
     protected void screenshot(Activity sut) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
-            Screenshot.snapActivity(sut).setName(UUID.randomUUID().toString()).record();
+            Screenshot.snapActivity(sut).setName(createName()).record();
         }
     }
 
