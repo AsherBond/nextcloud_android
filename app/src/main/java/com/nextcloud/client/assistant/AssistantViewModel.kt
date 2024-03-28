@@ -29,6 +29,7 @@ import com.owncloud.android.R
 import com.owncloud.android.lib.resources.assistant.model.Task
 import com.owncloud.android.lib.resources.assistant.model.TaskType
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -63,8 +64,8 @@ class AssistantViewModel(
     val filteredTaskList: StateFlow<List<Task>?> = _filteredTaskList
 
     init {
-        getTaskTypes()
-        getTaskList()
+        fetchTaskTypes()
+        fetchTaskList()
     }
 
     fun createTask(
@@ -83,6 +84,9 @@ class AssistantViewModel(
             _state.update {
                 State.TaskCreated(messageId)
             }
+
+            delay(2000L)
+            fetchTaskList()
         }
     }
 
@@ -93,7 +97,7 @@ class AssistantViewModel(
         }
     }
 
-    private fun getTaskTypes() {
+    private fun fetchTaskTypes() {
         viewModelScope.launch(Dispatchers.IO) {
             val allTaskType = context.get()?.getString(R.string.assistant_screen_all_task_type)
             val excludedIds = listOf("OCA\\ContextChat\\TextProcessing\\ContextChatTaskType")
@@ -107,9 +111,7 @@ class AssistantViewModel(
                     result.toList()
                 }
 
-                _selectedTaskType.update {
-                    result.first()
-                }
+                selectTaskType(result.first())
             } else {
                 _state.update {
                     State.Error(R.string.assistant_screen_task_types_error_state_message)
@@ -118,7 +120,7 @@ class AssistantViewModel(
         }
     }
 
-    fun getTaskList(appId: String = "assistant", onCompleted: () -> Unit = {}) {
+    fun fetchTaskList(appId: String = "assistant", onCompleted: () -> Unit = {}) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = repository.getTaskList(appId)
             if (result.isSuccess) {
