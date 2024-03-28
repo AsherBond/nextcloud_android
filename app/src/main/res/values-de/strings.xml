@@ -12,7 +12,7 @@
     <string name="action_empty_notifications">Alle Benachrichtigungen löschen</string>
     <string name="action_empty_trashbin">Papierkorb leeren</string>
     <string name="action_send_share">Senden/Teilen</string>
-    <string name="action_switch_grid_view">Rasteransicht</string>
+    <string name="action_switch_grid_view">Kachelansicht</string>
     <string name="action_switch_list_view">Listenansicht</string>
     <string name="actionbar_calendar_contacts_restore">Kontakte und Kalender wiederherstellen</string>
     <string name="actionbar_mkdir">Neuer Ordner</string>
@@ -37,6 +37,23 @@
     <string name="allow_resharing">Weiterteilen erlauben</string>
     <string name="app_widget_description">Zeigt ein Widget aus dem Dashboard an</string>
     <string name="appbar_search_in">Suche in %s</string>
+    <string name="assistant_screen_all_task_type">Alle</string>
+    <string name="assistant_screen_create_task_alert_dialog_input_field_placeholder">Bitte einen Text eingeben</string>
+    <string name="assistant_screen_delete_task_alert_dialog_description">Möchten Sie diese Aufgabe wirklich löschen?</string>
+    <string name="assistant_screen_delete_task_alert_dialog_title">Aufgabe löschen</string>
+    <string name="assistant_screen_loading">Aufgabenlisten werden geladen, bitte warten</string>
+    <string name="assistant_screen_no_task_available_for_all_task_filter_text">Keine Aufgabe verfügbar. Aufgabentyp auswählen, um eine neue Aufgabe zu erstellen.</string>
+    <string name="assistant_screen_no_task_available_text">Für den Aufgabentyp %s ist keine Aufgabe verfügbar. Sie können unten rechts eine neue Aufgabe erstellen.</string>
+    <string name="assistant_screen_task_create_fail_message">Es ist ein Fehler beim Erstellen der Aufgabe aufgetreten</string>
+    <string name="assistant_screen_task_create_success_message">Aufgabe erfolgreich erstellt</string>
+    <string name="assistant_screen_task_delete_fail_message">Aufgabe erfolgreich gelöscht</string>
+    <string name="assistant_screen_task_delete_success_message">Es ist ein Fehler beim Löschen der Aufgabe aufgetreten</string>
+    <string name="assistant_screen_task_list_error_state_message">Die Aufgabenliste kann nicht abgerufen werden. Bitte überprüfen Sie Ihre Internetverbindung.</string>
+    <string name="assistant_screen_task_more_actions_bottom_sheet_delete_action">Aufgabe löschen</string>
+    <string name="assistant_screen_task_types_error_state_message">Die Aufgabenliste kann nicht abgerufen werden. Bitte überprüfen Sie Ihre Internetverbindung.</string>
+    <string name="assistant_screen_task_view_show_less">Weniger anzeigen</string>
+    <string name="assistant_screen_task_view_show_more">Mehr anzeigen</string>
+    <string name="assistant_screen_top_bar_title">Assistent</string>
     <string name="associated_account_not_found">Verknüpftes Konto nicht gefunden!</string>
     <string name="auth_access_failed">Zugriffsfehler: %1$s</string>
     <string name="auth_account_does_not_exist">Das Konto ist bislang auf dem Gerät nicht vorhanden</string>
@@ -235,6 +252,7 @@
     <string name="drawer_header_background">Hintergrundbild des Kopfbereiches</string>
     <string name="drawer_item_activities">Aktivitäten</string>
     <string name="drawer_item_all_files">Alle Dateien</string>
+    <string name="drawer_item_assistant">Assistent</string>
     <string name="drawer_item_favorites">Favoriten</string>
     <string name="drawer_item_gallery">Medien</string>
     <string name="drawer_item_groupfolders">Gruppenordner</string>
@@ -253,6 +271,7 @@
     <string name="drawer_synced_folders">Automatisches Hochladen</string>
     <string name="e2e_not_yet_setup">E2E bislang nicht eingerichtet</string>
     <string name="e2e_offline">Ohne Internetverbindung nicht möglich</string>
+    <string name="ecosystem_apps_display_assistant">Assistent</string>
     <string name="ecosystem_apps_display_more">Mehr</string>
     <string name="ecosystem_apps_display_notes">Notizen</string>
     <string name="ecosystem_apps_display_talk">Talk</string>
@@ -391,7 +410,7 @@
     <string name="filename_hint">Dateiname</string>
     <string name="first_run_1_text">Halten Sie Ihre Daten sicher und unter Ihrer Kontrolle</string>
     <string name="first_run_2_text">Sichere Zusammenarbeit und Dateiaustausch</string>
-    <string name="first_run_3_text">Benutzerfreundliche Webmailer, Kalender und Kontakte</string>
+    <string name="first_run_3_text">Benutzerfreundlicher Webmailer, Kalender und Kontakte</string>
     <string name="first_run_4_text">Bildschirmfreigabe, Online-Meetings und Webkonferenzen</string>
     <string name="folder_already_exists">Ordner existiert bereits</string>
     <string name="folder_confirm_create">Erstellen</string>
@@ -747,6 +766,7 @@
     <string name="shared_icon_shared_via_link">Über einen Link geteilt</string>
     <string name="shared_with_you_by">Geteilt mit Ihnen von %1$s</string>
     <string name="sharee_add_failed">Freigeben fehlgeschlagen</string>
+    <string name="sharee_already_added_to_file">Das Hinzufügen der Freigabe ist fehlgeschlagen. Diese Datei oder dieser Ordner wurden bereits für diese Person oder Gruppe freigegeben.</string>
     <string name="show_images">Fotos anzeigen</string>
     <string name="show_video">Videos anzeigen</string>
     <string name="signup_with_provider">Mit Provider anmelden</string>
@@ -789,7 +809,7 @@
     <string name="storage_permission_full_access">Voller Zugriff</string>
     <string name="storage_permission_media_read_only">Medien schreibgeschützt</string>
     <string name="storage_pictures">Bilder</string>
-    <string name="store_full_desc">Die selbst gehostete Produktivitätsplattform, mit der Sie die Kontrolle behalten.\n\nFunktionen:\n* Einfache, moderne Benutzeroberfläche, passend zum Thema Ihres Servers\n* Laden Sie Dateien auf Ihren Nextcloud-Server hoch\n* Teilen Sie sie mit anderen\n * Halten Sie Ihre Lieblingsdateien und -ordner synchronisiert\n* Durchsuchen Sie alle Ordner auf Ihrem Server\n* Automatisches Hochladen von Fotos und Videos, die mit Ihrem Gerät aufgenommen wurden\n* Bleiben Sie mit Benachrichtigungen auf dem Laufenden\n* Unterstützung für mehrere Konten\n* Sicherer Zugriff auf Ihre Daten mit Fingerabdruck oder PIN\n* Integration mit DAVx5 (früher bekannt als DAVdroid) zur einfachen Einrichtung der Kalender- und Kontaktsynchronisierung\n\nBitte melden Sie alle Probleme unter https://github.com/nextcloud/android/issues und diskutieren Sie diese App unter https://help.nextcloud.com/c/clients/android\n\nNeu bei Nextcloud? Nextcloud ist ein privater Dateisynchronisierungs-, Freigabe- und Kommunikationsserver. Es handelt sich um kostenlose Software, die Sie selbst hosten oder ein Unternehmen damit bezahlen können, dies für Sie zu tun. Auf diese Weise haben Sie die Kontrolle über Ihre Fotos, Ihre Kalender- und Kontaktdaten, Ihre Dokumente und alles andere.\n\nSchauen Sie sich Nextcloud unter https://nextcloud.com an</string>
+    <string name="store_full_desc">Die selbst gehostete Produktivitätsplattform, mit der Sie die Kontrolle behalten.\n\nFunktionen:\n* Einfache, moderne Benutzeroberfläche, passend zum Design Ihres Servers\n* Laden Sie Dateien auf Ihren Nextcloud-Server hoch\n* Teilen Sie sie mit anderen\n * Halten Sie Ihre Lieblingsdateien und -ordner synchronisiert\n* Durchsuchen Sie alle Ordner auf Ihrem Server\n* Automatisches Hochladen von Fotos und Videos, die mit Ihrem Gerät aufgenommen wurden\n* Bleiben Sie mittels Benachrichtigungen auf dem Laufenden\n* Unterstützung für mehrere Konten\n* Sicherer Zugriff auf Ihre Daten mit Fingerabdruck oder PIN\n* Integration mit DAVx5 (früher bekannt als DAVdroid) zur einfachen Einrichtung der Kalender- und Kontaktsynchronisierung\n\nBitte melden Sie alle Probleme unter https://github.com/nextcloud/android/issues und diskutieren Sie über diese App unter https://help.nextcloud.com/c/clients/android\n\nNeu bei Nextcloud? Nextcloud ist ein privater Dateisynchronisierungs-, Freigabe- und Kommunikationsserver. Es handelt sich um kostenlose Software, die Sie selbst, oder gegen Gebühr bei einem Dienstleister hosten könen. So oder so haben Sie die Kontrolle über Ihre Fotos, Ihre Kalender- und Kontaktdaten, Ihre Dokumente und alles andere.\n\nSehen Sie sich Nextcloud unter https://nextcloud.com an</string>
     <string name="store_full_dev_desc">Die selbst gehostete Produktivitätsplattform gibt Ihnen die volle Kontrolle.\nDies ist die offizielle Entwicklungsversion und bietet neue, ungetestete Funkitionen. Dies kann zu Instabilitäten und Datenverlust führen. Die App ist für alle Benutzer, die Testen wollen und falls nötig Fehlerberichte erstellen. Nutzen Sie diese Version nicht für Ihre Produktivarbeit!\n\nSowohl die reguläre als auch die Entwicklerversion sind auf F-droid verfügbar und können parallel installiert werden.</string>
     <string name="store_short_desc">Die selbst gehostete Produktivitätsplattform gibt Ihnen die volle Kontrolle</string>
     <string name="store_short_dev_desc">Die selbst gehostete Produktivitätsplattform gibt Ihnen die volle Kontrolle (Vorab- Entwicklungsversion)</string>

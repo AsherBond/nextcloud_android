@@ -94,6 +94,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.crypto.Cipher;
+
 import androidx.annotation.CheckResult;
 import androidx.annotation.Nullable;
 
@@ -441,6 +443,7 @@ public class UploadFileOperation extends SyncOperation {
         }
     }
 
+    // TODO REFACTOR
     @SuppressLint("AndroidLintUseSparseArrays") // gson cannot handle sparse arrays easily, therefore use hashmap
     private RemoteOperationResult encryptedUpload(OwnCloudClient client, OCFile parentFile) {
         RemoteOperationResult result = null;
@@ -489,13 +492,14 @@ public class UploadFileOperation extends SyncOperation {
 //                                                   mContext);
 
             Object object = EncryptionUtils.downloadFolderMetadata(parentFile, client, mContext, user);
+            if (object instanceof DecryptedFolderMetadataFileV1 decrypted && decrypted.getMetadata() != null) {
+                metadataExists = true;
+            }
 
             if (CapabilityUtils.getCapability(mContext).getEndToEndEncryptionApiVersion().compareTo(E2EVersion.V2_0) >= 0) {
                 if (object == null) {
                     // TODO return error
                     return new RemoteOperationResult(new IllegalStateException("Metadata does not exist"));
-                } else {
-                    metadataExists = true;
                 }
             } else {
                 // v1 is allowed to be null, thus create it
@@ -507,8 +511,11 @@ public class UploadFileOperation extends SyncOperation {
                 String encryptedMetadataKey = EncryptionUtils.encryptStringAsymmetric(metadataKey, publicKey);
                 metadata.getMetadata().setMetadataKey(encryptedMetadataKey);
 
+                if (object instanceof DecryptedFolderMetadataFileV1) {
+                    metadata = (DecryptedFolderMetadataFileV1) object;
+                }
+
                 object = metadata;
-                metadataExists = false;
             }
 
             // todo fail if no metadata
@@ -553,14 +560,11 @@ public class UploadFileOperation extends SyncOperation {
             Long creationTimestamp = FileUtil.getCreationTimestamp(originalFile);
 
             /***** E2E *****/
-
-            // Key, always generate new one
             byte[] key = EncryptionUtils.generateKey();
-
-            // IV, always generate new one
             byte[] iv = EncryptionUtils.randomBytes(EncryptionUtils.ivLength);
-
-            EncryptedFile encryptedFile = EncryptionUtils.encryptFile(mFile, key, iv);
+            Cipher cipher = EncryptionUtils.getCipher(Cipher.ENCRYPT_MODE, key, iv);
+            File file = new File(mFile.getStoragePath());
+            EncryptedFile encryptedFile = EncryptionUtils.encryptFile(file, cipher);
 
             // new random file name, check if it exists in metadata
             String encryptedFileName = EncryptionUtils.generateUid();
@@ -575,10 +579,7 @@ public class UploadFileOperation extends SyncOperation {
                 }
             }
 
-            File encryptedTempFile = File.createTempFile("encFile", encryptedFileName);
-            FileOutputStream fileOutputStream = new FileOutputStream(encryptedTempFile);
-            fileOutputStream.write(encryptedFile.getEncryptedBytes());
-            fileOutputStream.close();
+            File encryptedTempFile = encryptedFile.getEncryptedFile();
 
             /***** E2E *****/
 
@@ -669,7 +670,6 @@ public class UploadFileOperation extends SyncOperation {
                     data.setFilename(mFile.getDecryptedFileName());
                     data.setMimetype(mFile.getMimeType());
                     data.setKey(EncryptionUtils.encodeBytesToBase64String(key));
-
                     decryptedFile.setEncrypted(data);
                     decryptedFile.setInitializationVector(EncryptionUtils.encodeBytesToBase64String(iv));
                     decryptedFile.setAuthenticationTag(encryptedFile.getAuthenticationTag());
@@ -738,6 +738,8 @@ public class UploadFileOperation extends SyncOperation {
                         token = null;
                     }
                 }
+
+                encryptedTempFile.delete();
             }
         } catch (FileNotFoundException e) {
             Log_OC.d(TAG, mFile.getStoragePath() + " not exists anymore");

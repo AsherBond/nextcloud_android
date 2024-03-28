@@ -35,6 +35,7 @@
     <string name="allow_resharing">อนุญาตให้แชร์ซ้ำ</string>
     <string name="app_widget_description">แสดงหนึ่งวิดเจ็ตจากแดชบอร์ด</string>
     <string name="appbar_search_in">ค้นหาใน %s</string>
+    <string name="assistant_screen_all_task_type">ทั้งหมด</string>
     <string name="associated_account_not_found">ไม่พบบัญชีที่เกี่ยวข้อง!</string>
     <string name="auth_access_failed">การเข้าถึงล้มเหลว: %1$s</string>
     <string name="auth_account_does_not_exist">บัญชียังไม่ถูกเพิ่มบนอุปกรณ์นี้</string>
@@ -541,12 +542,15 @@
     <string name="subject_shared_with_you">\"%1$s\" ได้ถูกแชร์กับคุณ</string>
     <string name="subject_user_shared_with_you">%1$s ได้แชร์ \"%2$s\" กับคุณ</string>
     <string name="sync_conflicts_in_favourites_ticker">ตรวจพบความขัดแย้ง</string>
+    <string name="sync_fail_content">ไม่สามารถซิงค์ %1$s</string>
     <string name="sync_fail_in_favourites_ticker">ไฟล์ Kept-in-sync ล้มเหลว</string>
     <string name="sync_fail_ticker">การผสานข้อมูลล้มเหลว</string>
     <string name="sync_file_nothing_to_do_msg">เนื้อหาของไฟล์ถูกประสานข้อมูลอยู่แล้ว</string>
+    <string name="sync_folder_failed_content">การซิงค์โฟลเดอร์ %1$s ไม่สามารถเสร็จสิ้นได้</string>
     <string name="sync_foreign_files_forgotten_ticker">มีไฟล์ต้นทางบางไฟล์ถูกลืม</string>
     <string name="sync_not_enough_space_dialog_action_choose">เลือกสิ่งที่จะซิงค์</string>
     <string name="sync_not_enough_space_dialog_placeholder">%1$s เป็น %2$s แต่มีแค่ %3$s ที่ใช้งานได้บนอุปกรณ์</string>
+    <string name="sync_status_button">ปุ่มสถานะการซิงค์</string>
     <string name="sync_string_files">ไฟล์</string>
     <string name="synced_folder_settings_button">ปุ่มการตั้งค่า</string>
     <string name="synced_folders_no_results">ไม่พบโฟลเดอร์สื่อ</string>
@@ -574,6 +578,7 @@
     <string name="upload_file_dialog_filename">ชื่อไฟล์</string>
     <string name="upload_file_dialog_filetype">ประเภทไฟล์</string>
     <string name="upload_list_delete">ลบ</string>
+    <string name="upload_sync_conflict">เกิดข้อขัดแย้งของการซิงค์ โปรดแก้ไขด้วยตนเอง</string>
     <string name="upload_unknown_error">ข้อผิดพลาดที่ไม่รู้จัก</string>
     <string name="uploader_btn_alternative_text">เลือก</string>
     <string name="uploader_btn_upload_text">อัปโหลด</string>
